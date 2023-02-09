@@ -2,7 +2,7 @@ function search() {
   let table = document.getElementById("table");
 
   table.childNodes.forEach((i) => {
-    let word = i.getAttribute("search-word");
+    let word = i.getAttribute("data-search-word");
     let index = word
       .toLowerCase()
       .indexOf(document.getElementById("search").value.toLowerCase());
@@ -65,7 +65,7 @@ window.addEventListener("load", () => {
       tr.insertAdjacentElement("beforeend", tdName);
       tr.insertAdjacentElement("beforeend", tdSource);
 
-      let searchWord = document.createAttribute("search-word");
+      let searchWord = document.createAttribute("data-search-word");
       searchWord.value = data[i]["name"] + " | " + data[i]["alias"] + " | " + data[i]["minecraft_id"];
 
       let trId = document.createAttribute("id");
