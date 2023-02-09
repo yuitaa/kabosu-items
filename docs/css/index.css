@@ -1,0 +1,21 @@
+.item-name {
+  font-size: 1.3rem;
+  line-height:  1.5em;
+}
+
+#link-to-github::before {
+    content: url("../img/github.svg");
+    padding-right: 0.2em;
+}
+
+body {
+    display: flex;
+    background-color: #494949;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}

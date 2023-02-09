@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabosu Items</title>
+    <script src="js/common.js"></script>
+    <script src="js/index.js?5"></script>
+    <link href="css/index.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon" type="image/png" href="img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/icon-192x192.png">
+
+    <meta property="og:title" content=KabosuItems>
+    <meta property="og:site_name" content=KabosuItems>
+    <meta property="og:url" content=https://yuitaa.github.io/kabosu-items />
+    <meta property="og:description" content=かぼすサーバーのアイテム情報を閲覧できる非公式webサイト>
+    <meta property="og:type" content="">
+    <meta property="og:image" content="https://yuitaa.github.io/kabosu-items/img/lemon.png">
+
+    <meta name="theme-color" content="#16611f" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div id="content">
+
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Kabosu Items</a>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="link-to-github" aria-current="page"
+                                        href="https://github.com/yuitaa/kabosu-items" target="_blank">Github</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="https://kabosu.localinfo.jp/"
+                                        target="_blank">かぼす公式HP</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="container-fluid">
+
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Kabosu Items</h1>
+                    </div>
+
+                    <div class="row container" id="container">
+                        <p>かぼすサーバーのアイテム情報を閲覧できる非公式webサイトです。</p>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">検索</span>
+                            <input type="text" class="form-control" placeholder="検索するワードをここに入力（アイテム名そのまま/ひらがな）"
+                                aria-label="search" id="search">
+                        </div>
+                        <div class="spinner-border" role="status" id="loading">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
