@@ -355,34 +355,33 @@ window.addEventListener("load", () => {
     document.getElementById("table-1").removeAttribute("style");
     document.getElementById("table-2").removeAttribute("style");
 
-    if (data["tags"]) {
+    for (let i in itemData) {
+      let related = itemData[i]["tags"].some((tag) => {
+        return data["tags"].includes(tag);
+      });
 
-      for (let i in itemData) {
+      related = related || itemData[i]["minecraft_id"] == data["minecraft_id"]
 
-        let related = itemData[i]["tags"].some((tag) => {
-          return data["tags"].includes(tag);
-        });
+      if (related) {
+        let isThisItem = i == location.hash.slice(1);
+        let li = document.createElement("li");
+        li.setAttribute("class", "list-group-item");
 
-        if (related) {
-          let isThisItem = (i == location.hash.slice(1))
-          let li = document.createElement("li")
-          li.setAttribute("class", "list-group-item")
+        if (isThisItem) {
+          li.textContent = itemData[i]["name"];
+        } else {
+          let a = document.createElement("a");
+          a.setAttribute("href", "view.html#" + i);
+          a.textContent = itemData[i]["name"];
+          li.insertAdjacentElement("beforeend", a);
 
-          if (isThisItem) {
-            li.textContent = itemData[i]["name"]
-          } else {
-            let a = document.createElement("a")
-            a.setAttribute("href", "view.html#"+i)
-            a.textContent = itemData[i]["name"]
-            li.insertAdjacentElement("beforeend", a)
-          }
-
-          document.getElementById("related-items-list")
-            .insertAdjacentElement("beforeend", li)
-
-          document.getElementById("related-items").removeAttribute("style")
+          document.getElementById("related-items").removeAttribute("style");
 
         }
+
+        document
+          .getElementById("related-items-list")
+          .insertAdjacentElement("beforeend", li);
 
       }
     }
@@ -391,6 +390,10 @@ window.addEventListener("load", () => {
   });
 });
 
-window.addEventListener('hashchange', function() {
-  location.reload()
-}, false);
+window.addEventListener(
+  "hashchange",
+  function () {
+    location.reload();
+  },
+  false
+);
