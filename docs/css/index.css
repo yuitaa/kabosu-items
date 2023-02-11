@@ -9,10 +9,16 @@
 }
 
 body {
-    display: flex;
     background-color: #494949;
     width: 100%;
 }
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-all;
+    }
 
 * {
     margin: 0;
