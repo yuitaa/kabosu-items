@@ -212,7 +212,7 @@ function potion(data) {
   }
 }
 
-function hideLoadingIcon () {
+function hideLoadingIcon() {
   loading = document.getElementById("loading");
   let hideStyle = document.createAttribute("style");
   hideStyle.value = "display: none";
@@ -306,8 +306,8 @@ function convertRawJson(rawJson) {
 }
 
 window.addEventListener("load", () => {
-  fetchDataWithCache(DATABASE_URL).then((data) => {
-    data = data[location.hash.slice(1)];
+  fetchDataWithCache(DATABASE_URL).then((itemData) => {
+    data = itemData[location.hash.slice(1)];
     console.log(data);
 
     if (!data) {
@@ -355,6 +355,42 @@ window.addEventListener("load", () => {
     document.getElementById("table-1").removeAttribute("style");
     document.getElementById("table-2").removeAttribute("style");
 
-    document.title = data["name"] + " | Kabosu Items"
+    if (data["tags"]) {
+
+      for (let i in itemData) {
+
+        let related = itemData[i]["tags"].some((tag) => {
+          return data["tags"].includes(tag);
+        });
+
+        if (related) {
+          let isThisItem = (i == location.hash.slice(1))
+          let li = document.createElement("li")
+          li.setAttribute("class", "list-group-item")
+
+          if (isThisItem) {
+            li.textContent = itemData[i]["name"]
+          } else {
+            let a = document.createElement("a")
+            a.setAttribute("href", "view.html#"+i)
+            a.textContent = itemData[i]["name"]
+            li.insertAdjacentElement("beforeend", a)
+          }
+
+          document.getElementById("related-items-list")
+            .insertAdjacentElement("beforeend", li)
+
+          document.getElementById("related-items").removeAttribute("style")
+
+        }
+
+      }
+    }
+
+    document.title = data["name"] + " | Kabosu Items";
   });
 });
+
+window.addEventListener('hashchange', function() {
+  location.reload()
+}, false);
