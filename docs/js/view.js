@@ -330,7 +330,9 @@ window.addEventListener("load", () => {
     }
 
     document.getElementById("raw-nbt").textContent = JSON.stringify(
-      data["nbt"]
+      data["nbt"],
+      null,
+      4
     );
     document.getElementById("give-command").textContent =
       "/give @p minecraft:" +
@@ -387,6 +389,7 @@ window.addEventListener("load", () => {
     }
 
     document.title = data["name"] + " | Kabosu Items";
+    hljs.highlightAll()
   });
 });
 
