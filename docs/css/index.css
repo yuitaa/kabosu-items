@@ -12,6 +12,14 @@
   padding-bottom: 2rem;
 }
 
+.badges {
+  margin-bottom: 1rem;
+}
+
+.badges img {
+  margin-bottom: 0.3em
+}
+
 body {
   background-color: #494949;
   width: 100%;
