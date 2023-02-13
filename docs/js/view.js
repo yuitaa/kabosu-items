@@ -293,7 +293,7 @@ function convertRawJson(rawJson) {
         out.setAttributeNode(style);
       }
     }
-    let classes = ""
+
     if (rawJson["strikethrough"]) {
       out.setAttribute("class", "text-decoration-line-through")
     }
