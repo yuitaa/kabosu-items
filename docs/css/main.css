@@ -1,0 +1,39 @@
+.item-name {
+  font-size: 1.3rem;
+  line-height: 1.5em;
+}
+
+#link-to-github::before {
+  content: url("../img/github.svg");
+  padding-right: 0.2em;
+}
+
+.list-group {
+  padding-bottom: 2rem;
+}
+
+.badges {
+  margin-bottom: 1rem;
+}
+
+.badges img {
+  margin-bottom: 0.3em
+}
+
+body {
+  background-color: #494949;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
