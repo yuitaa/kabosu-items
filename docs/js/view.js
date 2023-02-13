@@ -47,6 +47,12 @@ const ENCHANTS_AMBIGUOUS = [
   "水中呼吸"
 ]
 
+const EFFECTS_AMBIGUOUS = [
+  "火炎耐性",
+  "幸運",
+  "水中呼吸"
+]
+
 const ATTRIBUTE_NAMES = {
   "generic.armor": "防具",
   "generic.armor_toughness": "防具強度",
@@ -214,7 +220,19 @@ function potion(data) {
     let tr = document.createElement("tr");
 
     let th = document.createElement("th");
-    th.textContent = i;
+
+    let a = document.createElement("a");
+
+    let wiki_enchant_page = "https://minecraft.fandom.com/ja/wiki/" + i
+
+    if (ENCHANTS_AMBIGUOUS.includes(i)) {
+      wiki_enchant_page += "_(ステータス効果)"
+    }
+
+    a.setAttribute("href", wiki_enchant_page)
+    a.textContent = i
+
+    th.appendChild(a)
 
     let tdLevel = document.createElement("td");
     tdLevel.textContent = effects[i][0];
