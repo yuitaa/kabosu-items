@@ -294,6 +294,10 @@ function convertRawJson(rawJson) {
       }
     }
 
+    if (rawJson["strikethrough"]) {
+      out.setAttribute("class", "text-decoration-line-through")
+    }
+
     if (rawJson["extra"]) {
       out.appendChild(convertRawJson(rawJson["extra"]));
     }
