@@ -40,6 +40,13 @@ const ENCHANT_NAMES = {
   vanishing_curse: "消滅の呪い",
 };
 
+const ENCHANTS_AMBIGUOUS = [
+  "火炎耐性",
+  "幸運",
+  "修繕",
+  "水中呼吸"
+]
+
 const ATTRIBUTE_NAMES = {
   "generic.armor": "防具",
   "generic.armor_toughness": "防具強度",
@@ -126,7 +133,19 @@ function enchant(data) {
     let tr = document.createElement("tr");
 
     let th = document.createElement("th");
-    th.textContent = i;
+
+    let a = document.createElement("a");
+
+    let wiki_enchant_page = "https://minecraft.fandom.com/ja/wiki/" + i
+
+    if (ENCHANTS_AMBIGUOUS.includes(i)) {
+      wiki_enchant_page += "_(エンチャント)"
+    }
+
+    a.setAttribute("href", wiki_enchant_page)
+    a.textContent = i
+
+    th.appendChild(a)
 
     let td = document.createElement("td");
     td.textContent = enchants[i];
