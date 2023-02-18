@@ -223,13 +223,13 @@ function potion(data) {
 
     let a = document.createElement("a");
 
-    let wiki_enchant_page = "https://minecraft.fandom.com/ja/wiki/" + i
+    let wiki_effect_page = "https://minecraft.fandom.com/ja/wiki/" + i
 
-    if (ENCHANTS_AMBIGUOUS.includes(i)) {
-      wiki_enchant_page += "_(ステータス効果)"
+    if (EFFECTS_AMBIGUOUS.includes(i)) {
+      wiki_effect_page += "_(ステータス効果)"
     }
 
-    a.setAttribute("href", wiki_enchant_page)
+    a.setAttribute("href", wiki_effect_page)
     a.textContent = i
 
     th.appendChild(a)
