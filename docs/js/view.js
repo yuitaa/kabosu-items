@@ -40,18 +40,9 @@ const ENCHANT_NAMES = {
   vanishing_curse: "消滅の呪い",
 };
 
-const ENCHANTS_AMBIGUOUS = [
-  "火炎耐性",
-  "幸運",
-  "修繕",
-  "水中呼吸"
-]
+const ENCHANTS_AMBIGUOUS = ["火炎耐性", "幸運", "修繕", "水中呼吸"];
 
-const EFFECTS_AMBIGUOUS = [
-  "火炎耐性",
-  "幸運",
-  "水中呼吸"
-]
+const EFFECTS_AMBIGUOUS = ["火炎耐性", "幸運", "水中呼吸"];
 
 const ATTRIBUTE_NAMES = {
   "generic.armor": "防具",
@@ -142,16 +133,16 @@ function enchant(data) {
 
     let a = document.createElement("a");
 
-    let wiki_enchant_page = "https://minecraft.fandom.com/ja/wiki/" + i
+    let wiki_enchant_page = "https://minecraft.fandom.com/ja/wiki/" + i;
 
     if (ENCHANTS_AMBIGUOUS.includes(i)) {
-      wiki_enchant_page += "_(エンチャント)"
+      wiki_enchant_page += "_(エンチャント)";
     }
 
-    a.setAttribute("href", wiki_enchant_page)
-    a.textContent = i
+    a.setAttribute("href", wiki_enchant_page);
+    a.textContent = i;
 
-    th.appendChild(a)
+    th.appendChild(a);
 
     let td = document.createElement("td");
     td.textContent = enchants[i];
@@ -223,16 +214,16 @@ function potion(data) {
 
     let a = document.createElement("a");
 
-    let wiki_effect_page = "https://minecraft.fandom.com/ja/wiki/" + i
+    let wiki_effect_page = "https://minecraft.fandom.com/ja/wiki/" + i;
 
     if (EFFECTS_AMBIGUOUS.includes(i)) {
-      wiki_effect_page += "_(ステータス効果)"
+      wiki_effect_page += "_(ステータス効果)";
     }
 
-    a.setAttribute("href", wiki_effect_page)
-    a.textContent = i
+    a.setAttribute("href", wiki_effect_page);
+    a.textContent = i;
 
-    th.appendChild(a)
+    th.appendChild(a);
 
     let tdLevel = document.createElement("td");
     tdLevel.textContent = effects[i][0];
@@ -332,7 +323,7 @@ function convertRawJson(rawJson) {
     }
 
     if (rawJson["strikethrough"]) {
-      out.setAttribute("class", "text-decoration-line-through")
+      out.setAttribute("class", "text-decoration-line-through");
     }
 
     if (rawJson["extra"]) {
@@ -403,7 +394,7 @@ window.addEventListener("load", () => {
         return data["tags"].includes(tag);
       });
 
-      related = related || itemData[i]["minecraft_id"] == data["minecraft_id"]
+      related = related || itemData[i]["minecraft_id"] == data["minecraft_id"];
 
       if (related) {
         let isThisItem = i == location.hash.slice(1);
@@ -419,18 +410,22 @@ window.addEventListener("load", () => {
           li.insertAdjacentElement("beforeend", a);
 
           document.getElementById("related-items").removeAttribute("style");
-
         }
 
         document
           .getElementById("related-items-list")
           .insertAdjacentElement("beforeend", li);
-
       }
     }
 
+    document.getElementById("copy-button").addEventListener("click", () => {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(`${data["name"]} <${location.href}>\n`);
+      }
+    });
+
     document.title = data["name"] + " | Kabosu Items";
-    hljs.highlightAll()
+    hljs.highlightAll();
   });
 });
 
