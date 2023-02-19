@@ -1,5 +1,5 @@
 const DATABASE_URL =
-  "https://script.google.com/macros/s/AKfycbwv5_oOOSN-YhI9_ZvdG4Webfd9vrOCrhoGuw7dPB90oXhLpqt3xx-Kye73a6EB1ZnrAQ/exec"
+  "https://script.google.com/macros/s/AKfycbwv5_oOOSN-YhI9_ZvdG4Webfd9vrOCrhoGuw7dPB90oXhLpqt3xx-Kye73a6EB1ZnrAQ/exec";
 
 function fetchDataWithCache(url) {
   const cacheKey = `cache_${url}`;

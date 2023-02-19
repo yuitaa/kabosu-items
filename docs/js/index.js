@@ -66,7 +66,12 @@ window.addEventListener("load", () => {
       tr.insertAdjacentElement("beforeend", tdSource);
 
       let searchWord = document.createAttribute("data-search-word");
-      searchWord.value = data[i]["name"] + " | " + data[i]["alias"] + " | " + data[i]["minecraft_id"];
+      searchWord.value =
+        data[i]["name"] +
+        " | " +
+        data[i]["alias"] +
+        " | " +
+        data[i]["minecraft_id"];
 
       let trId = document.createAttribute("id");
       trId.value = i;

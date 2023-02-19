@@ -372,6 +372,19 @@ window.addEventListener("load", () => {
       JSON.stringify(data["nbt"]) +
       " 1";
 
+    document
+      .getElementById("give-copy-button")
+      .addEventListener("click", () => {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(
+            "/give @p minecraft:" +
+              data["minecraft_id"] +
+              JSON.stringify(data["nbt"]) +
+              " 1"
+          );
+        }
+      });
+
     if (data["nbt"]["Enchantments"]) {
       enchant(data["nbt"]["Enchantments"]);
     } else if (data["nbt"]["StoredEnchantments"]) {

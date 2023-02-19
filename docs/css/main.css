@@ -8,6 +8,10 @@
   padding-right: 0.2em;
 }
 
+#give-copy-button {
+  margin-left: 2rem;
+}
+
 .list-group {
   padding-bottom: 2rem;
 }
