@@ -1,5 +1,6 @@
 function search() {
   let table = document.getElementById("table");
+  let foundItems = 0
 
   table.childNodes.forEach((i) => {
     let word = i.getAttribute("data-search-word");
@@ -19,8 +20,10 @@ function search() {
       showStyle.value = "display: table-row";
 
       tr.setAttributeNode(showStyle);
+      foundItems += 1
     }
   });
+  document.getElementById("found-items-count").textContent = foundItems
 }
 
 window.addEventListener("load", () => {
