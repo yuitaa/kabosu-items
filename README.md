@@ -1,10 +1,9 @@
+# kabosu-items
 <div>
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/yuitaa/kabosu-items?style=for-the-badge">
   <img alt="GitHub" src="https://img.shields.io/github/license/yuitaa/kabosu-items?style=for-the-badge">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/yuitaa/kabosu-items?style=for-the-badge">
 </div>
-
-# kabosu-items
 かぼすサーバーのアイテム情報を閲覧できる web サイトです。
 これはかぼすサーバーが公式に提供するものではありません。
 
