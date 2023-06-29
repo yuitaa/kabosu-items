@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kabosu Items</title>
     <script src="js/common.js?1"></script>
-    <script src="js/index.js?7"></script>
+    <script src="js/index.js?8"></script>
     <link href="css/main.css" rel="stylesheet">
 
     <link rel="apple-touch-icon" type="image/png" href="img/apple-touch-icon-180x180.png">
@@ -77,10 +77,55 @@
                         <p>かぼすサーバーのアイテム情報を閲覧できる非公式webサイトです。</p>
 
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">検索</span>
-                            <input type="text" class="form-control" placeholder="検索するワードをここに入力（アイテム名そのまま/ひらがな）"
-                                aria-label="search" id="search">
+                            <span class="input-group-text">検索</span>
+                            <input type="text" class="form-control search-input"
+                                placeholder="検索するワードをここに入力（アイテム名そのまま/ひらがな/Minecraft ID）" aria-label="search"
+                                id="search">
                         </div>
+                        <div class="border border-secondary bg-light py-3 mb-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">エンチャント</span>
+                                <select class="form-select search-input" aria-label="enchant type" id="enchant-type">
+                                    <option value="" selected>-</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <input type="number" class="form-control search-input" placeholder="最小レベル"
+                                    aria-label="enchant level min" id="enchant-min">
+                                <span class="input-group-text">から</span>
+                                <input type="number" class="form-control search-input" placeholder="最大レベル"
+                                    aria-label="enchant level max" id="enchant-max">
+                                <span class="input-group-text">まで</span>
+                            </div>
+                        </div>
+                        <div class="border border-secondary bg-light py-3 mb-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">追加効果</span>
+                                <select class="form-select search-input" aria-label="attribute type"
+                                    id="attribute-type">
+                                    <option value="" selected>-</option>
+                                </select>
+                                <!--<select class="form-select search-input" aria-label="attribute type"
+                                    id="attribute-slot">
+                                    <option value="" selected>スロット未選択</option>
+                                    <option value="head">頭</option>
+                                    <option value="chest">胴体</option>
+                                    <option value="legs">脚</option>
+                                    <option value="feet">足</option>
+                                    <option value="mainhand">利き手</option>
+                                    <option value="offhand">オフハンド</option>
+                                </select>-->
+                            </div>
+                            <div class="input-group">
+                                <input type="number" class="form-control search-input" placeholder="最小値"
+                                    aria-label="attribute level min" id="attribute-min">
+                                <span class="input-group-text">から</span>
+                                <input type="number" class="form-control search-input" placeholder="最大値"
+                                    aria-label="attribute level max" id="attribute-max">
+                                <span class="input-group-text">まで</span>
+                            </div>
+                        </div>
+
                         <p><b id="found-items-count">-</b> 件のアイテムが見つかりました!</p>
                         <div class="spinner-border" role="status" id="loading">
                             <span class="visually-hidden">Loading...</span>
