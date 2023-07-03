@@ -12,6 +12,10 @@
   margin-left: 2rem;
 }
 
+#container {
+  margin: auto;
+}
+
 .list-group {
   padding-bottom: 2rem;
 }
