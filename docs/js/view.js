@@ -159,6 +159,25 @@ function updateTooltipArea(input) {
   });
 }
 
+function rawJsonToAnsiCode(input) {
+  let enchant = enchantToAnsi(input["StoredEnchantments"]) || enchantToAnsi(input["Enchantments"])
+  let potion = potionToAnsi(input["CustomPotionEffects"])
+  let attribute = attributeToAnsi(input["AttributeModifiers"])
+
+  let out = "```ansi\n[0m";
+  let itemName = JSON.parse(input["display"]["Name"]);
+  out += generateAnsi(itemName);
+  out += `[0m${enchant}${potion}${attribute}\n`;
+
+  input["display"]["Lore"].forEach((i) => {
+    out += generateAnsi(JSON.parse(i));
+    out += "\n";
+  });
+  out = out.slice(0, -1)
+  out += "[0m\n```";
+  return out;
+}
+
 function convertRawJson(rawJson) {
   const COLORS = {
     black: "#000000",
@@ -203,7 +222,6 @@ function convertRawJson(rawJson) {
         style.value = `color: ${COLORS[rawJson["color"]]};`;
         out.setAttributeNode(style);
       } else if (rawJson["color"].match(/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/)) {
-        // カラーコードにマッチ
         style.value = `color: ${rawJson["color"]};`;
         out.setAttributeNode(style);
       }
@@ -236,6 +254,9 @@ window.addEventListener("load", () => {
     }
 
     updateTooltipArea(data["nbt"]);
+    let ansiCode = rawJsonToAnsiCode(data["nbt"]);
+    console.log([ansiCode])
+    console.log(ansiCode.slice(12, -3));
 
     hideLoadingIcon();
 
